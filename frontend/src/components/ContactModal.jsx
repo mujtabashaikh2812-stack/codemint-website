@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Send, CheckCircle2, ArrowRight, Code2 } from 'lucide-react';
+import { X, Send, CheckCircle2, Code2 } from 'lucide-react';
 
 export default function ContactModal({ isOpen, onClose }) {
   const [submitted, setSubmitted] = useState(false);
@@ -8,28 +8,8 @@ export default function ContactModal({ isOpen, onClose }) {
     name: '',
     email: '',
     company: '',
-    budget: '$50k - $100k',
-    services: [],
     message: ''
   });
-
-  const availableServices = [
-    'Web Development',
-    'SaaS Platform',
-    'Mobile Application',
-    'UI/UX Design',
-    'AI Integration',
-    'Cloud Architecture'
-  ];
-
-  const toggleService = (service) => {
-    setFormData(prev => ({
-      ...prev,
-      services: prev.services.includes(service)
-        ? prev.services.filter(s => s !== service)
-        : [...prev.services, service]
-    }));
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -38,6 +18,7 @@ export default function ContactModal({ isOpen, onClose }) {
 
   const resetAndClose = () => {
     setSubmitted(false);
+    setFormData({ name: '', email: '', company: '', message: '' });
     onClose();
   };
 
@@ -65,8 +46,8 @@ export default function ContactModal({ isOpen, onClose }) {
             {/* Header */}
             <div className="px-6 py-5 bg-[#0D121A] border-b border-white/10 flex items-center justify-between">
               <div className="flex items-center gap-2 text-white font-heading font-bold text-lg">
-                <Code2 className="w-5 h-5 text-[#4F8CFF]" />
-                <span>Start an Engagement with CodeMint</span>
+                <Code2 className="w-5 h-5 text-[#3B82F6]" />
+                <span>Let's Work Together</span>
               </div>
               <button
                 onClick={resetAndClose}
@@ -84,14 +65,14 @@ export default function ContactModal({ isOpen, onClose }) {
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
                   <h3 className="text-2xl font-bold font-heading text-white">
-                    Project Request Received
+                    Message Sent Successfully
                   </h3>
                   <p className="text-gray-400 text-sm max-w-md mx-auto leading-relaxed">
-                    Thank you for reaching out. A Principal Engineering Partner at CodeMint will review your requirements and respond within 4 business hours.
+                    Thank you for reaching out! We've received your message and will get back to you within 24 hours.
                   </p>
                   <button
                     onClick={resetAndClose}
-                    className="px-6 py-2.5 rounded-full bg-[#4F8CFF] text-white font-medium text-sm mt-4 hover:bg-[#3B7BEB]"
+                    className="px-6 py-2.5 rounded-full bg-[#3B82F6] text-white font-medium text-sm mt-4 hover:bg-[#1D4ED8] transition-colors"
                   >
                     Return to Website
                   </button>
@@ -99,7 +80,7 @@ export default function ContactModal({ isOpen, onClose }) {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   
-                  {/* Inputs Row */}
+                  {/* Name & Email Row */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-mono text-gray-400 mb-1.5">Your Name *</label>
@@ -108,93 +89,60 @@ export default function ContactModal({ isOpen, onClose }) {
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder="Sarah Jenkins"
-                        className="w-full px-4 py-3 rounded-xl bg-[#0B0F14] border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-[#4F8CFF] text-sm"
+                        placeholder="John Doe"
+                        className="w-full px-4 py-3 rounded-xl bg-[#0B0F14] border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-[#3B82F6] text-sm transition-colors"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-mono text-gray-400 mb-1.5">Work Email *</label>
+                      <label className="block text-xs font-mono text-gray-400 mb-1.5">Email Address *</label>
                       <input
                         type="email"
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder="sarah@company.com"
-                        className="w-full px-4 py-3 rounded-xl bg-[#0B0F14] border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-[#4F8CFF] text-sm"
+                        placeholder="john@company.com"
+                        className="w-full px-4 py-3 rounded-xl bg-[#0B0F14] border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-[#3B82F6] text-sm transition-colors"
                       />
                     </div>
                   </div>
 
-                  {/* Company & Budget */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-mono text-gray-400 mb-1.5">Company Name</label>
-                      <input
-                        type="text"
-                        value={formData.company}
-                        onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                        placeholder="Apex Technologies"
-                        className="w-full px-4 py-3 rounded-xl bg-[#0B0F14] border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-[#4F8CFF] text-sm"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-mono text-gray-400 mb-1.5">Estimated Budget</label>
-                      <select
-                        value={formData.budget}
-                        onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-[#0B0F14] border border-white/10 text-white focus:outline-none focus:border-[#4F8CFF] text-sm"
-                      >
-                        <option value="$25k - $50k">$25,000 - $50,000</option>
-                        <option value="$50k - $100k">$50,000 - $100,000</option>
-                        <option value="$100k+">$100,000+</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  {/* Service Interest Checkboxes */}
+                  {/* Company */}
                   <div>
-                    <label className="block text-xs font-mono text-gray-400 mb-2">Services Needed</label>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                      {availableServices.map((service) => {
-                        const active = formData.services.includes(service);
-                        return (
-                          <button
-                            type="button"
-                            key={service}
-                            onClick={() => toggleService(service)}
-                            className={`px-3 py-2 rounded-lg text-xs font-medium border text-left transition-colors ${
-                              active
-                                ? 'bg-[#4F8CFF]/20 text-[#4F8CFF] border-[#4F8CFF]'
-                                : 'bg-[#0B0F14] text-gray-400 border-white/10 hover:text-gray-200'
-                            }`}
-                          >
-                            {service}
-                          </button>
-                        );
-                      })}
-                    </div>
+                    <label className="block text-xs font-mono text-gray-400 mb-1.5">Company Name</label>
+                    <input
+                      type="text"
+                      value={formData.company}
+                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                      placeholder="Your Company (optional)"
+                      className="w-full px-4 py-3 rounded-xl bg-[#0B0F14] border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-[#3B82F6] text-sm transition-colors"
+                    />
                   </div>
 
                   {/* Message */}
                   <div>
-                    <label className="block text-xs font-mono text-gray-400 mb-1.5">Project Overview & Timeline</label>
+                    <label className="block text-xs font-mono text-gray-400 mb-1.5">Project Details *</label>
                     <textarea
                       rows={4}
+                      required
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Tell us about the product you want to build or scale..."
-                      className="w-full px-4 py-3 rounded-xl bg-[#0B0F14] border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-[#4F8CFF] text-sm resize-none"
+                      placeholder="Tell us about your project, goals, and timeline..."
+                      className="w-full px-4 py-3 rounded-xl bg-[#0B0F14] border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-[#3B82F6] text-sm resize-none transition-colors"
                     ></textarea>
                   </div>
 
                   {/* Submit Button */}
                   <button
                     type="submit"
-                    className="w-full py-4 rounded-xl bg-[#4F8CFF] hover:bg-[#3B7BEB] text-white font-semibold flex items-center justify-center gap-2 shadow-lg shadow-[#4F8CFF]/20 transition-all"
+                    className="w-full py-4 rounded-xl bg-gradient-to-r from-[#2563EB] to-[#1D4ED8] hover:from-[#1D4ED8] hover:to-[#1D4ED8] text-white font-semibold flex items-center justify-center gap-2 shadow-lg shadow-[#2563EB]/20 transition-all"
                   >
-                    <span>Submit Project Scope</span>
+                    <span>Send Message</span>
                     <Send className="w-4 h-4" />
                   </button>
+
+                  <p className="text-xs text-gray-500 text-center font-mono">
+                    We'll respond within 24 hours. No spam, ever.
+                  </p>
 
                 </form>
               )}
@@ -206,3 +154,4 @@ export default function ContactModal({ isOpen, onClose }) {
     </AnimatePresence>
   );
 }
+

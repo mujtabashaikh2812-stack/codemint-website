@@ -1,98 +1,78 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Play, ExternalLink, Activity, ShieldCheck, Zap, Layers, CheckCircle2 } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ExternalLink, CheckCircle2, Play } from 'lucide-react';
 import ProjectDemoModal from './ProjectDemoModal';
 
 export default function PortfolioSection({ onOpenContact }) {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [activeDemoModal, setActiveDemoModal] = useState(null);
 
-  const categories = ['All', 'AI & Machine Learning', 'Enterprise SaaS', 'E-Commerce & Retail'];
+  const categories = ['All', 'Web Development', 'Web Applications', 'UI/UX Design'];
 
   const projects = [
     {
-      id: 'interview-iq',
-      title: 'InterviewIQ AI',
-      category: 'AI & Machine Learning',
-      headline: 'Real-Time Candidate Technical Assessment Engine',
-      description: 'An AI-powered technical hiring system engineered with speech-to-text vector indexing, automated concurrency evaluation, and zero-bias candidate scorecards.',
+      id: 'project-1',
+      title: 'Enterprise SaaS Dashboard',
+      category: 'Web Applications',
+      headline: 'Custom Analytics & Management Platform',
+      description: 'A full-featured SaaS dashboard built for a logistics company, featuring real-time data visualization, user role management, and automated reporting.',
       outcomes: [
-        '85% Reduction in Time-to-Hire for Series B SaaS Client',
-        'Evaluated 12,000+ Technical Engineers with Zero Downtime',
-        'Sub-10ms Real-Time AI Speech-to-Text Pipeline'
+        'Built with modern React architecture for performance',
+        'Real-time data updates with sub-second latency',
+        'Responsive design accessible across all devices'
       ],
-      stack: ['OpenAI API', 'Next.js', 'Python Core', 'MongoDB', 'Tailwind'],
+      stack: ['React', 'Node.js', 'PostgreSQL', 'Tailwind', 'AWS'],
       gradient: 'from-indigo-950 via-purple-950 to-slate-950',
-      badge: 'AI Solution',
-      metrics: { primary: '98% AI Match Score', secondary: 'Sub-10ms Audio Latency' },
-      mockupData: {
-        score: '9.8 / 10',
-        candidate: 'Senior Distributed Systems Engineer',
-        assessment: 'Zero-copy I/O memory buffer management verified without leaks.'
-      }
+      badge: 'Web Application',
+      metrics: { primary: 'React + Node.js Stack', secondary: 'Real-time Analytics' }
     },
     {
-      id: 'healthcare',
-      title: 'Apex HealthCare',
-      category: 'Enterprise SaaS',
-      headline: 'Telehealth Platform & Real-Time Patient Telemetry',
-      description: 'A SOC2 Type II and HIPAA-compliant telehealth architecture engineered with real-time patient vitals monitoring, automated EHR record sync, and AI risk detection.',
+      id: 'project-2',
+      title: 'E-Commerce Storefront',
+      category: 'Web Development',
+      headline: 'Modern Online Retail Experience',
+      description: 'A custom e-commerce platform with secure payment processing, product management, inventory tracking, and a seamless shopping experience.',
       outcomes: [
-        '100% HIPAA & SOC2 Type II Audit Compliance Guaranteed',
-        'Processed 4.2M Patient Telemetry Packets Daily',
-        'Zero Data Leaks or Security Incidents Across 3 Years'
+        'Custom product catalog with advanced filtering',
+        'Secure payment integration with Stripe',
+        'Optimized for fast page loads and SEO'
       ],
-      stack: ['Next.js', 'Node.js', 'PostgreSQL', 'Docker', 'AWS'],
+      stack: ['Next.js', 'Stripe', 'PostgreSQL', 'Tailwind', 'Vercel'],
       gradient: 'from-emerald-950 via-teal-950 to-slate-950',
-      badge: 'Enterprise SaaS',
-      metrics: { primary: 'HIPAA & SOC2 Certified', secondary: '0% Security Anomaly' },
-      mockupData: {
-        vitals: '72 BPM • 99% SpO2',
-        status: 'Optimal Patient Health',
-        audit: 'AES-256-GCM Encrypted'
-      }
+      badge: 'E-Commerce',
+      metrics: { primary: 'Next.js + Stripe', secondary: 'SEO Optimized' }
     },
     {
-      id: 'commerce',
-      title: 'Nexus Commerce Engine',
-      category: 'E-Commerce & Retail',
-      headline: 'High-Throughput Global Multi-Tenant E-Commerce Core',
-      description: 'An ultra-resilient headless e-commerce backend built to sustain Black Friday peak flash sales exceeding 14,000 checkout requests per second.',
+      id: 'project-3',
+      title: 'Portfolio & Brand Website',
+      category: 'Web Development',
+      headline: 'Professional Brand Showcase',
+      description: 'A beautifully designed portfolio website for a creative agency, featuring smooth animations, project galleries, and integrated contact functionality.',
       outcomes: [
-        '$45.2M Handled in Peak Black Friday Checkout Volume',
-        '0ms Downtime Across 14 Geographic AWS Regions',
-        '420ms Global Page Load Speed Worldwide'
+        'Custom design with smooth scroll animations',
+        'Built with modern framer-motion animations',
+        'Fully responsive across all screen sizes'
       ],
-      stack: ['Next.js', 'Stripe API', 'GraphQL', 'Redis', 'Tailwind'],
+      stack: ['React', 'Framer Motion', 'CSS', 'Vite'],
       gradient: 'from-blue-950 via-slate-900 to-black',
-      badge: 'E-Commerce Core',
-      metrics: { primary: '14,280 Checkout Req/Sec', secondary: '$45.2M Volume Sustained' },
-      mockupData: {
-        throughput: '14,280 Req/Sec',
-        gateway: 'Cloudflare Enterprise Edge',
-        failover: 'Zero Lost Orders'
-      }
+      badge: 'Website',
+      metrics: { primary: 'Modern Frontend Stack', secondary: 'Responsive Design' }
     },
     {
-      id: 'real-estate',
-      title: 'Crown Estate Engine',
-      category: 'Enterprise SaaS',
-      headline: 'Institutional Real Estate Wealth & Property Engine',
-      description: 'An asset management platform providing institutional investors with automated portfolio rebalancing, risk variance telemetry, and real-time yield forecasting.',
+      id: 'project-4',
+      title: 'Admin Dashboard UI',
+      category: 'UI/UX Design',
+      headline: 'Clean & Functional Admin Interface',
+      description: 'A thoughtfully designed admin dashboard interface focused on usability, data clarity, and efficient workflow management for internal teams.',
       outcomes: [
-        '$850M+ Portfolio Valuation Onboarded in 6 Months',
-        '98.4% Average Commercial Tenant Occupancy Rate',
-        'FINRA Compliant Real-Time Rebalancing Pipeline'
+        'User-centric design with intuitive navigation',
+        'Data visualization for key business metrics',
+        'Component-based design system for scalability'
       ],
-      stack: ['React', 'Firebase', 'Stripe', 'Go Engine', 'TypeScript'],
+      stack: ['React', 'Tailwind', 'Recharts', 'TypeScript'],
       gradient: 'from-slate-950 via-cyan-950 to-slate-900',
-      badge: 'Wealth SaaS',
-      metrics: { primary: '$850M+ Portfolio AUM', secondary: '98.4% Occupancy Rate' },
-      mockupData: {
-        portfolio: '$850,000,000 AUM',
-        yield: '+14.2% YTD Yield',
-        variance: 'Zero Risk Variance'
-      }
+      badge: 'UI/UX Design',
+      metrics: { primary: 'Design System Built', secondary: 'Component Library' }
     }
   ];
 
@@ -115,10 +95,11 @@ export default function PortfolioSection({ onOpenContact }) {
               OUR WORK
             </span>
             <h2 className="text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight leading-tight">
-              Projects That <span className="font-serif-accent italic font-normal text-gray-200">Make an Impact</span>
+              Recent{' '}
+              <span className="font-serif-headline italic font-normal text-gray-200">Projects</span>
             </h2>
             <p className="text-gray-400 text-base md:text-lg">
-              Explore interactive live case studies engineered for market leaders.
+              A selection of websites and applications we've built.
             </p>
           </div>
 
@@ -140,7 +121,7 @@ export default function PortfolioSection({ onOpenContact }) {
           </div>
         </div>
 
-        {/* 4 Interactive Demo Project Cards Grid */}
+        {/* Project Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {filteredProjects.map((project, index) => (
             <motion.div
@@ -153,7 +134,7 @@ export default function PortfolioSection({ onOpenContact }) {
             >
               <div>
                 
-                {/* 1. Realistic Interactive Console Graphic */}
+                {/* Card Top Graphic Area */}
                 <div className={`p-6 bg-gradient-to-br ${project.gradient} border-b border-white/10 space-y-4 relative overflow-hidden`}>
                   
                   {/* Subtle Screen Reflection */}
@@ -165,7 +146,7 @@ export default function PortfolioSection({ onOpenContact }) {
                         {project.badge}
                       </span>
                       <span className="text-emerald-400 text-xs font-mono flex items-center gap-1">
-                        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Production
+                        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Live Demo
                       </span>
                     </div>
 
@@ -174,29 +155,28 @@ export default function PortfolioSection({ onOpenContact }) {
                       className="px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-medium flex items-center gap-1.5 backdrop-blur-md transition-all group-hover:scale-105"
                     >
                       <Play className="w-3 h-3 fill-current text-[#3B82F6]" />
-                      <span>Interactive Demo</span>
+                      <span>Details</span>
                     </button>
                   </div>
 
-                  {/* UI Console Box inside Project Card */}
+                  {/* Project Preview Box */}
                   <div className="bg-[#080C10]/95 rounded-2xl p-4 border border-white/15 shadow-2xl space-y-3 backdrop-blur-xl">
                     <div className="flex items-center justify-between border-b border-white/10 pb-2.5">
-                      <span className="text-xs font-mono font-bold text-white">{project.title} Dashboard</span>
+                      <span className="text-xs font-mono font-bold text-white">{project.title}</span>
                       <span className="text-[10px] font-mono text-[#3B82F6] bg-[#2563EB]/10 px-2 py-0.5 rounded border border-[#2563EB]/20">
                         {project.metrics.primary}
                       </span>
                     </div>
 
-                    {/* Dynamic Graphic UI Lines */}
                     <div className="grid grid-cols-2 gap-2 text-xs">
                       <div className="p-2.5 bg-[#171F2B] rounded-xl border border-white/5 space-y-1">
-                        <div className="text-[10px] text-gray-400 font-mono">Performance SLA</div>
+                        <div className="text-[10px] text-gray-400 font-mono">Stack</div>
                         <div className="font-bold text-emerald-400">{project.metrics.secondary}</div>
                       </div>
                       <div className="p-2.5 bg-[#171F2B] rounded-xl border border-white/5 space-y-1">
                         <div className="text-[10px] text-gray-400 font-mono">Status</div>
                         <div className="font-bold text-white flex items-center gap-1">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Operational
+                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Delivered
                         </div>
                       </div>
                     </div>
@@ -204,7 +184,7 @@ export default function PortfolioSection({ onOpenContact }) {
 
                 </div>
 
-                {/* 2. Project Card Content Body */}
+                {/* Card Content Body */}
                 <div className="p-6 space-y-4">
                   <div className="space-y-1.5">
                     <h3 className="text-2xl font-bold font-heading text-white group-hover:text-[#3B82F6] transition-colors">
@@ -219,10 +199,10 @@ export default function PortfolioSection({ onOpenContact }) {
                     {project.description}
                   </p>
 
-                  {/* Business Outcomes Bullet Checklist */}
+                  {/* Key Highlights */}
                   <div className="space-y-2 pt-2 border-t border-white/5">
                     <span className="text-[10px] font-mono text-gray-400 uppercase tracking-wider block font-bold">
-                      Verified Business Impact
+                      Key Highlights
                     </span>
                     {project.outcomes.map((outcome, idx) => (
                       <div key={idx} className="flex items-start gap-2 text-xs text-gray-300">
@@ -247,13 +227,13 @@ export default function PortfolioSection({ onOpenContact }) {
 
               </div>
 
-              {/* Card Action Footer Button */}
+              {/* Card Action Footer */}
               <div className="px-6 pb-6 pt-2">
                 <button
                   onClick={() => setActiveDemoModal(project)}
-                  className="w-full py-3 rounded-xl bg-[#171F2B] hover:bg-[#2563EB] text-white font-semibold text-xs flex items-center justify-center gap-2 border border-white/10 hover:border-[#2563EB] transition-all duration-300 shadow-md group-hover:shadow-[#2563EB]/25"
+                  className="w-full py-3 rounded-xl bg-[#171F2B] hover:bg-[#2563EB] text-white font-semibold text-xs flex items-center justify-center gap-2 border border-white/10 hover:border-[#2563EB] transition-all duration-300 shadow-md"
                 >
-                  <span>Launch Live System Demo</span>
+                  <span>View Project Details</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </button>
               </div>
@@ -264,7 +244,7 @@ export default function PortfolioSection({ onOpenContact }) {
 
       </div>
 
-      {/* Full Interactive Demo Modal Trigger */}
+      {/* Project Details Modal */}
       <ProjectDemoModal
         project={activeDemoModal}
         isOpen={!!activeDemoModal}
@@ -274,3 +254,4 @@ export default function PortfolioSection({ onOpenContact }) {
     </section>
   );
 }
+

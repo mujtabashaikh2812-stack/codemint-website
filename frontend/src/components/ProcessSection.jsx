@@ -7,7 +7,7 @@ export default function ProcessSection() {
     {
       number: '1',
       title: 'Discovery',
-      subtitle: 'Understand your goals',
+      subtitle: 'Understanding Your Goals',
       icon: Search
     },
     {
@@ -19,7 +19,7 @@ export default function ProcessSection() {
     {
       number: '3',
       title: 'Design',
-      subtitle: 'User-focused Experience',
+      subtitle: 'User-Focused Experience',
       icon: Layout
     },
     {
@@ -31,7 +31,7 @@ export default function ProcessSection() {
     {
       number: '5',
       title: 'Testing',
-      subtitle: 'Ensure Quality Every Time',
+      subtitle: 'Ensuring Quality',
       icon: ShieldCheck
     },
     {
@@ -52,10 +52,11 @@ export default function ProcessSection() {
             OUR PROCESS
           </span>
           <h2 className="text-4xl md:text-5xl font-extrabold font-heading text-slate-900 tracking-tight">
-            A Proven Process. <span className="font-serif-accent italic font-normal text-slate-800">Better Results.</span>
+            A Proven Process.{' '}
+            <span className="font-serif-headline italic font-normal text-slate-800">Better Results.</span>
           </h2>
           <p className="text-slate-600 text-base md:text-lg">
-            We follow a structured approach to ensure quality, transparency and success.
+            We follow a structured approach to ensure quality, transparency and success at every step.
           </p>
         </div>
 
@@ -74,9 +75,9 @@ export default function ProcessSection() {
                 transition={{ duration: 0.5, delay: index * 0.08 }}
                 className="relative text-center space-y-3 flex flex-col items-center group"
               >
-                {/* Circular Number Icon Badge */}
+                {/* Circular Icon Badge */}
                 <div className="relative">
-                  <div className="w-14 h-14 rounded-full bg-white border border-slate-300 shadow-md flex items-center justify-center text-[#2563EB] font-bold group-hover:bg-[#2563EB] group-hover:text-white transition-all">
+                  <div className="w-14 h-14 rounded-full bg-white border border-slate-300 shadow-md flex items-center justify-center text-[#2563EB] group-hover:bg-[#2563EB] group-hover:text-white transition-all duration-300">
                     <Icon className="w-6 h-6" />
                   </div>
                   <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-[#2563EB] text-white text-[10px] font-bold flex items-center justify-center border-2 border-white">
@@ -108,3 +109,4 @@ export default function ProcessSection() {
     </section>
   );
 }
+

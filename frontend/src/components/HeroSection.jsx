@@ -27,10 +27,10 @@ export default function HeroSection({ onOpenContact }) {
               transition={{ duration: 0.5 }}
               className="inline-block text-xs font-bold font-mono tracking-widest text-[#3B82F6] uppercase"
             >
-              BUILDING DIGITAL SOLUTIONS
+              FREELANCE DIGITAL STUDIO
             </motion.div>
 
-            {/* Main Editorial Headline matching image */}
+            {/* Main Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -38,7 +38,8 @@ export default function HeroSection({ onOpenContact }) {
               className="text-5xl sm:text-6xl md:text-7xl lg:text-[76px] font-extrabold font-heading leading-[1.05] tracking-tight text-white"
             >
               We Build Digital <br />
-              Solutions That <br />
+              Solutions That{' '}
+              <br />
               <span className="font-serif-headline italic font-normal bg-gradient-to-r from-[#60A5FA] via-[#3B82F6] to-[#1D4ED8] bg-clip-text text-transparent">
                 Drive Real Growth
               </span>
@@ -51,7 +52,7 @@ export default function HeroSection({ onOpenContact }) {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="text-base sm:text-lg text-[#94A3B8] leading-relaxed max-w-xl font-normal"
             >
-              We help startups and businesses build powerful websites, applications and AI solutions that solve problems and create impact.
+              We help startups and businesses build powerful websites, applications and digital solutions that solve problems and create real impact.
             </motion.p>
 
             {/* Two Action Buttons */}
@@ -101,7 +102,7 @@ export default function HeroSection({ onOpenContact }) {
 
           </div>
 
-          {/* Right Clean 3D Hardware Graphic */}
+          {/* Right Hero Graphic */}
           <div className="lg:col-span-6 mt-8 lg:mt-0">
             <InteractiveHeroMockup />
           </div>
@@ -111,3 +112,4 @@ export default function HeroSection({ onOpenContact }) {
     </section>
   );
 }
+

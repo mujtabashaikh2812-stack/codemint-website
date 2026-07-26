@@ -7,24 +7,24 @@ export default function FaqSection() {
 
   const faqs = [
     {
-      question: "What is CodeMint's typical engagement model?",
-      answer: "We offer dedicated product squad engagements (fixed monthly retainer for a full cross-functional senior team) as well as scoped milestone-based project engineering for greenfield apps."
+      question: "What services does CodeMint offer?",
+      answer: "We offer a range of digital services including custom website development, web applications, e-commerce solutions, UI/UX design, AI integration, and cloud infrastructure setup. Each project is tailored to the client's specific needs and goals."
     },
     {
-      question: "How long does it take to ship a custom product MVP?",
-      answer: "Most MVP builds (SaaS platform, web portal, or custom mobile application) are shipped within 6 to 12 weeks from strategy kickoff to production deployment."
+      question: "How long does it take to build a website or web app?",
+      answer: "Timeline depends on the scope and complexity of the project. A standard business website typically takes 2-4 weeks, while more complex web applications or SaaS platforms can range from 6-12 weeks. We'll provide a clear timeline during our initial consultation."
     },
     {
-      question: "Who owns the code and intellectual property?",
-      answer: "You do. 100% of code, design artifacts, infrastructure scripts, and IP generated during our engagement belong entirely to your company from day one."
+      question: "Do you provide ongoing maintenance and support?",
+      answer: "Yes. We offer ongoing maintenance packages to keep your website or application secure, up-to-date, and running smoothly. This includes security updates, performance monitoring, content updates, and technical support as needed."
     },
     {
-      question: "How do you ensure post-launch stability and maintenance?",
-      answer: "We provide comprehensive 24/7 post-launch telemetry, automated uptime monitoring, security patching, and ongoing feature sprints tailored to your SLA requirements."
+      question: "What is your development process like?",
+      answer: "We follow a structured process: Discovery (understanding your goals), Planning (strategy and roadmap), Design (user-focused wireframes and mockups), Development (clean, scalable code), Testing (quality assurance), and Launch & Support. We keep you involved at every stage."
     },
     {
-      question: "Can CodeMint integrate with our internal engineering team?",
-      answer: "Yes. We frequently act as an elite force multiplier—co-engineering core modules alongside your in-house CTO or VP of Engineering while enforcing strict code quality standards."
+      question: "How do I get started with CodeMint?",
+      answer: "Simply reach out through the contact form or click 'Get a Quote'. We'll schedule a free consultation to discuss your project, goals, and budget. From there, we'll create a tailored proposal and timeline for you."
     }
   ];
 
@@ -34,10 +34,13 @@ export default function FaqSection() {
         
         {/* Header */}
         <div className="text-center space-y-4 mb-16">
-          <span className="text-xs font-mono tracking-widest text-[#4F8CFF] uppercase">Clear Answers</span>
+          <span className="text-xs font-mono tracking-widest text-[#3B82F6] uppercase font-extrabold">FAQ</span>
           <h2 className="text-4xl md:text-5xl font-bold font-heading text-white tracking-tight">
             Frequently Asked Questions
           </h2>
+          <p className="text-gray-400 text-base max-w-lg mx-auto">
+            Got questions? We've got answers. If you don't see what you're looking for, feel free to reach out.
+          </p>
         </div>
 
         {/* Minimal Accordion */}
@@ -58,7 +61,7 @@ export default function FaqSection() {
                     {faq.question}
                   </span>
                   <div className={`w-8 h-8 rounded-full bg-[#171F2B] border border-white/10 flex items-center justify-center text-gray-300 shrink-0 transition-transform duration-300 ${
-                    isOpen ? 'rotate-45 text-[#4F8CFF]' : ''
+                    isOpen ? 'rotate-45 text-[#3B82F6] border-[#3B82F6]' : ''
                   }`}>
                     <Plus className="w-4 h-4" />
                   </div>
@@ -86,3 +89,4 @@ export default function FaqSection() {
     </section>
   );
 }
+
